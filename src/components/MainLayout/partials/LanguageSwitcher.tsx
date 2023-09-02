@@ -32,7 +32,7 @@ function LanguageSwitcher() {
 		}
 	};
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		getStatus();
 	}, []);
 
