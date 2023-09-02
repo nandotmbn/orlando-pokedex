@@ -36,7 +36,7 @@ function LanguageSwitcher() {
 
 	return (
 		<div>
-			<Tooltip title="Click to switch to Bahasa Indonesia!">
+			<Tooltip title={locale == "en" ? "Click to switch to Bahasa Indonesia!" : "Klik untuk mengganti ke Bahasa Inggris!"}>
 				<button
 					className="p-1 rounded bg-yellow-400 dark:bg-gray-900 w-16"
 					onClick={handleSwitch}
