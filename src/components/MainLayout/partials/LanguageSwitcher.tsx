@@ -1,26 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import React, { useEffect, useLayoutEffect } from "react";
 import { Tooltip } from "antd";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import i18nConfig from "../../../../i18nConfig";
 import { useCurrentLocale } from "next-i18n-router/client";
-import { i18nRouter } from "next-i18n-router/";
 
 function LanguageSwitcher() {
 	const router = useRouter();
-	const pathName = usePathname();
 	const locale = useCurrentLocale(i18nConfig);
-
-	// const getStatus = () => {
-	// 	if (localStorage?.lang == "id" || !localStorage?.lang) {
-	// 		localStorage.setItem("lang", "id");
-	// 	} else {
-	// 		localStorage.setItem("lang", "en");
-	// 		router.replace("/en");
-	// 	}
-	// };
 
 	const handleSwitch = () => {
 		if (locale == "id") {
@@ -28,13 +16,9 @@ function LanguageSwitcher() {
 			router.replace("/en");
 		} else {
 			localStorage.setItem("lang", "id");
-			router.replace("/");
+			router.replace("/id");
 		}
 	};
-
-	// useEffect(() => {
-	// 	getStatus();
-	// }, []);
 
 	return (
 		<div>
