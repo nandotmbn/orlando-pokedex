@@ -2,43 +2,42 @@
 "use client";
 
 import { Tooltip } from "antd";
-import { useRouter } from "next/navigation";
-import i18nConfig from "../../../../i18nConfig";
-import { useCurrentLocale } from "next-i18n-router/client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-function LanguageSwitcher() {
-	const router = useRouter();
-	const locale = useCurrentLocale(i18nConfig);
+interface ILanguageSwitcher {
+	lang: "id" | "en";
+}
 
-	const handleSwitch = () => {
-		if (locale == "id") {
-			localStorage.setItem("lang", "en");
-			router.replace("/en");
-		} else {
-			localStorage.setItem("lang", "id");
-			router.replace("/");
-		}
+function LanguageSwitcher({ lang }: ILanguageSwitcher) {
+	const pathName = usePathname();
+
+	const redirectedPathName = (locale: string) => {
+		if (!pathName) return "/";
+		const segments = pathName.split("/");
+		segments[1] = locale;
+		return segments.join("/");
 	};
 
 	return (
 		<div>
 			<Tooltip
 				title={
-					locale == "en"
+					lang == "en"
 						? "Click to switch to Bahasa Indonesia!"
 						: "Klik untuk mengganti ke Bahasa Inggris!"
 				}
 			>
-				<button
-					className="p-1 rounded bg-yellow-400 dark:bg-gray-900 w-16"
-					onClick={handleSwitch}
+				<Link
+					className="p-1 rounded bg-yellow-400 dark:bg-gray-900"
+					href={redirectedPathName(lang == "id" ? "en" : "id")}
 				>
-					{locale == "id" ? (
-						<span className="text-white p-1 pb-0 dark:text-blue-400">ID</span>
-					) : (
-						<span className="text-white p-1 pb-0 dark:text-blue-400">EN</span>
-					)}
-				</button>
+						{lang == "id" ? (
+							<span className="text-white p-1 pb-0 dark:text-blue-400">ID</span>
+						) : (
+							<span className="text-white p-1 pb-0 dark:text-blue-400">EN</span>
+						)}
+				</Link>
 			</Tooltip>
 		</div>
 	);
