@@ -16,7 +16,7 @@ function LanguageSwitcher() {
 			router.replace("/en");
 		} else {
 			localStorage.setItem("lang", "id");
-			router.replace("/id");
+			router.replace("/");
 		}
 	};
 
