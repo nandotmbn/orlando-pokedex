@@ -1,0 +1,13 @@
+{
+  "server-component": {
+    "welcome": "Selamat datang"
+  },
+  "counter": {
+    "increment": "Increment",
+    "decrement": "Decrement"
+  },
+  "headerMenu": {
+    "favourite": "Favorit",
+    "background": "Mengapa ada proyek ini?"
+  }
+}
