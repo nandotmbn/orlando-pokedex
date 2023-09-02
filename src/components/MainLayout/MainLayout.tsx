@@ -11,7 +11,7 @@ async function MainLayout({ children, locale }: { locale: "en" | "id", children:
 		<>
 			<header className="border-b-2 border-gray-300 dark:bg-black">
 				<div className="flex flex-row h-20 items-center justify-between m-auto w-8/12">
-					<h1 className="text-gray-800 font-light text-2xl dark:invert">Orlando Pokedex</h1>
+					<h1 className="text-gray-800 font-light text-2xl dark:text-white">Orlando Pokedex</h1>
 					<div className="flex flex-row gap-8 items-center">
 						<ul className="flex flex-row gap-4 dark:invert">
 							<li>
@@ -31,7 +31,7 @@ async function MainLayout({ children, locale }: { locale: "en" | "id", children:
 					</div>
 				</div>
 			</header>
-			<main>{children}</main>
+			<main className="">{children}</main>
 		</>
 	);
 }

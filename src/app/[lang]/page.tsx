@@ -22,7 +22,7 @@ export async function generateMetadata(
 	};
 }
 
-export default function Home({lang}: {lang: "id" | "en"}) {
+export default function Home() {
 	return (
 		<main className="bg-white h-screen dark:bg-black">
 			<div className="h-44 flex items-center">
