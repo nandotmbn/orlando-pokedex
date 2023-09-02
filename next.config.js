@@ -1,14 +1,12 @@
-const withImages = require("next-images");
-module.exports = withImages({
-	i18n: {
-		locales: ["id", "en"],
-		defaultLocale: "id",
-		localeDetection: false,
-	},
-	images: {
-		disableStaticImages: true,
-		domains: [
+const { i18nRewriter } = require('next-i18n-router');
+const i18nConfig = require('./i18nConfig');
 
-		],
-	},
-});
+const nextConfig = {
+  async rewrites() {
+    return {
+      afterFiles: i18nRewriter(i18nConfig)
+    };
+  }
+};
+
+module.exports = nextConfig;

@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
+import {Tooltip} from "antd"
 
 function ModeSwitcher() {
 	const getStatus = () => {
 		// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-		if (document.documentElement.classList.contains("dark")) {
+		if (localStorage.getItem("theme") == "dark") {
 			document.documentElement.classList.add("dark");
 			document.documentElement.classList.remove("light");
 			localStorage.setItem("theme", "dark");
@@ -28,20 +29,22 @@ function ModeSwitcher() {
 		}
 	};
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		getStatus();
 	}, []);
 
 	return (
 		<div>
-			<button
-				className="p-1 rounded bg-yellow-400 dark:bg-gray-900"
-				onClick={handleSwitch}
-			>
-				<span className="material-symbols-outlined text-white p-1 pb-0 dark:text-blue-400">
-					light_mode
-				</span>
-			</button>
+			<Tooltip title="Click to switch your theme!">
+				<button
+					className="p-1 rounded bg-yellow-400 dark:bg-gray-900"
+					onClick={handleSwitch}
+				>
+					<span className="material-symbols-outlined text-white p-1 pb-0 dark:text-blue-400">
+						light_mode
+					</span>
+				</button>
+			</Tooltip>
 		</div>
 	);
 }
