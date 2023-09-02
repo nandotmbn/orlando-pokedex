@@ -6,21 +6,21 @@ import { Tooltip } from "antd";
 import { useRouter, usePathname } from "next/navigation";
 import i18nConfig from "../../../../i18nConfig";
 import { useCurrentLocale } from "next-i18n-router/client";
+import { i18nRouter } from "next-i18n-router/";
 
 function LanguageSwitcher() {
 	const router = useRouter();
 	const pathName = usePathname();
 	const locale = useCurrentLocale(i18nConfig);
 
-	const getStatus = () => {
-		if (localStorage?.lang == "id" || !localStorage?.lang) {
-			localStorage.setItem("lang", "id");
-			router.replace("/");
-		} else {
-			localStorage.setItem("lang", "en");
-			router.replace("/en");
-		}
-	};
+	// const getStatus = () => {
+	// 	if (localStorage?.lang == "id" || !localStorage?.lang) {
+	// 		localStorage.setItem("lang", "id");
+	// 	} else {
+	// 		localStorage.setItem("lang", "en");
+	// 		router.replace("/en");
+	// 	}
+	// };
 
 	const handleSwitch = () => {
 		if (locale == "id") {
@@ -32,9 +32,9 @@ function LanguageSwitcher() {
 		}
 	};
 
-	useEffect(() => {
-		getStatus();
-	}, []);
+	// useEffect(() => {
+	// 	getStatus();
+	// }, []);
 
 	return (
 		<div>
