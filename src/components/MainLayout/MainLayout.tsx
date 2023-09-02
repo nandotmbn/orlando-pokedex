@@ -16,12 +16,12 @@ function MainLayout({ children }: { children: React.ReactNode }) {
 					<div className="flex flex-row gap-8 items-center">
 						<ul className="flex flex-row gap-4 dark:invert">
 							<li>
-								<Link href="/favourites">
+								<Link href="/">
 									<p>Favourites</p>
 								</Link>
 							</li>
 							<li>
-								<Link href="/backgrounds">
+								<Link href="/">
 									<p>Why this project exist?</p>
 								</Link>
 							</li>
