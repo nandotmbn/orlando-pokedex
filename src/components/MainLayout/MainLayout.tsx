@@ -22,7 +22,7 @@ function MainLayout({ children }: { children: React.ReactNode }) {
 							</li>
 							<li>
 								<Link href="/">
-									<p>Why this project exist?</p>
+									<p>Why this project exists?</p>
 								</Link>
 							</li>
 						</ul>
