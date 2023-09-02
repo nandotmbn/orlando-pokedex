@@ -1,7 +1,3 @@
-import { CheckOutlined } from "@ant-design/icons";
-import { CloseOutlined } from "@ant-design/icons/lib/icons";
-import { ConfigProvider } from "antd";
-import Switch from "antd/es/switch";
 import Link from "next/link";
 import React from "react";
 import LanguageSwitcher from "./partials/LanguageSwitcher";
