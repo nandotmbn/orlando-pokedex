@@ -24,8 +24,10 @@ function LanguageSwitcher() {
 
 	const handleSwitch = () => {
 		if (locale == "id") {
+			localStorage.setItem("lang", "en");
 			router.replace("/en");
 		} else {
+			localStorage.setItem("lang", "id");
 			router.replace("/");
 		}
 	};
@@ -36,7 +38,13 @@ function LanguageSwitcher() {
 
 	return (
 		<div>
-			<Tooltip title={locale == "en" ? "Click to switch to Bahasa Indonesia!" : "Klik untuk mengganti ke Bahasa Inggris!"}>
+			<Tooltip
+				title={
+					locale == "en"
+						? "Click to switch to Bahasa Indonesia!"
+						: "Klik untuk mengganti ke Bahasa Inggris!"
+				}
+			>
 				<button
 					className="p-1 rounded bg-yellow-400 dark:bg-gray-900 w-16"
 					onClick={handleSwitch}

@@ -27,6 +27,7 @@
     "next": "^13.4.0",
     "next-i18n-router": "^3.2.0",
     "next-images": "^1.8.5",
+    "next-international": "^0.9.5",
     "postcss": "^8.4.29",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

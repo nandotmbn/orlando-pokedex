@@ -822,7 +822,7 @@ classnames@2.x, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classna
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
-client-only@0.0.1:
+client-only@0.0.1, client-only@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
   integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
@@ -1642,6 +1642,11 @@ internal-slot@^1.0.5:
     has "^1.0.3"
     side-channel "^1.0.4"
 
+international-types@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/international-types/-/international-types-0.8.0.tgz#a3d027ad59d8de9b53fa8c448f8fe9b1bc558097"
+  integrity sha512-cJwagIBzMG0FTK81TABeSBU0eReIXWmvW18m/URn8ZA+GLoWIcdL43kfjArwHVmZJ1n+IFchsBj8tQLYUqmwnA==
+
 is-array-buffer@^3.0.1, is-array-buffer@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/is-array-buffer/-/is-array-buffer-3.0.2.tgz#f2653ced8412081638ecb0ebbd0c41c6e0aecbbe"
@@ -2062,6 +2067,15 @@ next-images@^1.8.5:
   dependencies:
     file-loader "^6.2.0"
     url-loader "^4.1.0"
+
+next-international@^0.9.5:
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/next-international/-/next-international-0.9.5.tgz#6127f1799fa41bbb9d17450458e4b04c77cb697e"
+  integrity sha512-yS6DnuNAK+2EO5KWLgw2FPGwBkQ8gylrG0vNSeJD0/BAHSyIpPCn6E+1KPzawQffB5r6wVP6vHjDoSlUOxWWew==
+  dependencies:
+    client-only "^0.0.1"
+    international-types "^0.8.0"
+    server-only "^0.0.1"
 
 next@^13.4.0:
   version "13.4.19"
@@ -2899,6 +2913,11 @@ semver@^7.5.4:
   integrity sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==
   dependencies:
     lru-cache "^6.0.0"
+
+server-only@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/server-only/-/server-only-0.0.1.tgz#0f366bb6afb618c37c9255a314535dc412cd1c9e"
+  integrity sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==
 
 shebang-command@^2.0.0:
   version "2.0.0"
