@@ -15,7 +15,7 @@ function LanguageSwitcher() {
 	const getStatus = () => {
 		if (localStorage?.lang == "id" || !localStorage?.lang) {
 			localStorage.setItem("lang", "id");
-			router.replace("/id");
+			router.replace("/");
 		} else {
 			localStorage.setItem("lang", "en");
 			router.replace("/en");
