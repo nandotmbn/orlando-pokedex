@@ -9,6 +9,8 @@ import PokemonCards from "@/components/PokemonCards/PokemonCards";
 import { Drawer, FloatButton, message } from "antd";
 import {
 	FilterOutlined,
+	Loading3QuartersOutlined,
+	LoadingOutlined,
 	MenuOutlined,
 	RadarChartOutlined,
 } from "@ant-design/icons";
@@ -74,9 +76,9 @@ function PokeListPanel({ dictionary }: IPokeListPanel) {
 					offset: 10 * pageParam,
 					filter: {
 						generationIds: [],
-						typeIds: []
-					}
-				})
+						typeIds: [],
+					},
+				});
 			},
 			{
 				getNextPageParam: (lastPage, allPages) => {
@@ -131,6 +133,13 @@ function PokeListPanel({ dictionary }: IPokeListPanel) {
 					/>
 				</FloatButton.Group>
 			</div>
+			{isFetchingNextPage && (
+				<div className="h-44 w-11/12 lg:w-10/12 xl:w-8/12 m-auto flex items-center justify-center">
+					<div className="text-center">
+						<LoadingOutlined className="text-8xl text-white" />
+					</div>
+				</div>
+			)}
 			{isSelecting && (
 				<div className="absolute sticky bottom-8 bg-white h-14 w-full md:w-6/12 m-auto rounded-xl flex flex-row p-1 justify-between">
 					<div className="flex flex-row">
