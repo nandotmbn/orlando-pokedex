@@ -2,11 +2,10 @@
 /* eslint-disable react/display-name */
 import { PokemonService } from "@/services";
 import { useQuery } from "@tanstack/react-query";
-import { Image } from "antd";
 import React from "react";
 
 const PokemonCards = React.forwardRef(
-	({ pokemonData }: { pokemonData: { name: string } }, ref: any) => {
+	({ pokemonData, dictionary }: { pokemonData: { name: string }, dictionary: any }, ref: any) => {
 		const pokemonMainData = useQuery([pokemonData.name], () => {
 			return PokemonService.getByNamePokemons({
 				isNotify: false,
@@ -52,7 +51,7 @@ const PokemonCards = React.forwardRef(
 					</h2>
 
 					<p className="mt-4 text-gray-500 dark:text-white font-semibold text-xl">
-						Ability
+						{dictionary.pokemonCards?.abilities}
 					</p>
 					<div className="grid grid-cols-2 gap-2">
 						{abilities?.map((ability: any, i: number) => {

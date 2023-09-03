@@ -1,4 +1,3 @@
-import { getDictionary } from "../../../[lang]/get-dictionaries";
 import Link from "next/link";
 import React from "react";
 import LanguageSwitcher from "./partials/LanguageSwitcher";

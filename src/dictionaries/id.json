@@ -11,5 +11,8 @@
 	"headerMenu": {
 		"favourite": "Favorit",
 		"background": "Mengapa ada proyek ini?"
-	}
+	},
+	"pokemonCards": {
+    "abilities": "Kemampuan"
+  }
 }

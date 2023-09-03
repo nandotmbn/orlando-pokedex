@@ -45,6 +45,7 @@ function PokeListPanel({ dictionary }: IPokeListPanel) {
 				page.results.map((poke: any, i: number) => {
 					return (
 						<PokemonCards
+              dictionary={dictionary}
 							ref={page.results.length === i + 1 ? ref : undefined}
 							key={i}
               pokemonData={poke}
