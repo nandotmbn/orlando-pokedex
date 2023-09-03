@@ -48,12 +48,12 @@ const PokemonCards = React.forwardRef(
 					),
 					borderColor: hexToRgba(colourNameToHex(pokemonColor) ?? "FFFFFF", 1),
 				}}
-				className={`h-72 w-full p-2 rounded-xl saturate-40 border-2 flex flex-row gap-4`}
+				className={`h-52 w-full p-2 rounded-xl saturate-40 border-2 flex flex-row gap-4`}
 				ref={ref}
 			>
 				<div className="flex flex-1">
 					<img
-						className="object-cover object-center w-full h-auto"
+						className="object-cover object-center w-full"
 						src={pokemonImg}
 						alt={pokemonData?.name}
 					/>
@@ -61,28 +61,28 @@ const PokemonCards = React.forwardRef(
 				<div className="flex flex-1 flex-col justify-between">
 					<div>
 						<div className="flex flex-row items-center justify-between">
-							<p className="mt-4 text-gray-500 dark:text-white font-semibold text-xl">
+							<p className="mt-4 text-gray-500 dark:text-white font-semibold text-xs">
 								#{pokemonMainData?.data?.id}
 							</p>
 							<h2
-								className="uppercase px-4 py-2 text-lg dark:text-gray-100 text-gray-800 font-bold text-center rounded-full border-2"
+								className="uppercase p-1 px-2 text-xs lg:text-lg dark:text-gray-100 text-gray-800 font-bold text-center rounded-full border-2"
 								style={{ borderColor: pokemonColor }}
 							>
 								{pokemonData.name}
 							</h2>
 						</div>
 
-						<p className="mt-4 text-gray-500 dark:text-white font-semibold text-xl">
+						<p className="mt-4 text-gray-500 dark:text-white font-semibold text-xs md:text-xl">
 							{dictionary.pokemonCards?.abilities}
 						</p>
-						<div className="grid grid-cols-2 gap-2">
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
 							{abilities?.map((ability: any, i: number) => {
 								return (
 									<div
 										key={i}
-										className="p-2 rounded-full bg-black text-white dark:invert"
+										className="p-1 rounded-full bg-black text-white dark:invert"
 									>
-										<p className="text-xs capitalize text-center">
+										<p className="text-xxs lg:text-xs capitalize text-center">
 											{ability?.ability?.name?.split("-").join(" ")}
 										</p>
 									</div>
@@ -102,9 +102,9 @@ const PokemonCards = React.forwardRef(
 											1
 										),
 									}}
-									className="p-2 rounded-full"
+									className="py-1 rounded-full"
 								>
-									<p className="text-xs capitalize text-center text-white">
+									<p className="text-xxs lg:text-xs capitalize text-center text-white">
 										{type?.type?.name?.split("-").join(" ")}
 									</p>
 								</div>

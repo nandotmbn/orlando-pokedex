@@ -10,7 +10,7 @@ function HomeViews({ dictionary }: IHomeViews) {
 	return (
 		<main className="bg-white dark:bg-gray-900">
 			<div className="flex flex-row items-center justify-center w-10/12 m-auto py-8 gap-2 border-b-2 border-black dark:border-white">
-				<div className="flex flex-1 flex-col">
+				<div className="flex flex-1 flex-col text-center items-center md:text-left md:items-start">
 					<h2
 						style={{ fontFamily: "Rubik Iso" }}
 						className="text-black dark:invert text-6xl"
@@ -35,7 +35,7 @@ function HomeViews({ dictionary }: IHomeViews) {
 						</p>
 					</a>
 				</div>
-				<div className="flex flex-1 animate-pulse">
+				<div className="flex flex-1 animate-pulse  hidden md:flex">
 					<Image
 						className="contain relative w-full"
 						src="/cdn/images/pikachu.png"

@@ -40,7 +40,7 @@ function PokeListPanel({ dictionary }: IPokeListPanel) {
 	}, [inView, fetchNextPage]);
 
 	return (
-		<div className="grid grid-cols-2 gap-8 w-8/12 m-auto mt-8">
+		<div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-11/12 lg:w-10/12 xl:w-8/12 m-auto mt-8">
 			{data?.pages.map((page) =>
 				page.results.map((poke: any, i: number) => {
 					return (
