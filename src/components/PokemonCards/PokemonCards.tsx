@@ -2,19 +2,36 @@
 /* eslint-disable react/display-name */
 import { PokemonService } from "@/services";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import hexToRgba from "hex-to-rgba";
 import colourNameToHex from "@/constants/name-color.toHex.constants";
 import pokemonColorTypeConverter from "@/constants/type-color.pokemon.constants";
+
+type TWillCompare = {
+	name: string;
+	imageUrl: string;
+};
+
+interface IPokemonCards {
+	pokemonData: { name: string };
+	dictionary: any;
+	isSelecting: boolean;
+	setCompare: (operator: "ADD" | "DELETE", props: TWillCompare) => void;
+	willCompare: TWillCompare[];
+}
 
 const PokemonCards = React.forwardRef(
 	(
 		{
 			pokemonData,
 			dictionary,
-		}: { pokemonData: { name: string }; dictionary: any },
+			isSelecting,
+			setCompare,
+			willCompare,
+		}: IPokemonCards,
 		ref: any
 	) => {
+		const [isSelected, setSelected] = useState(false);
 		const pokemonMainData = useQuery([pokemonData.name], () => {
 			return PokemonService.getByNamePokemons({
 				isNotify: false,
@@ -38,6 +55,30 @@ const PokemonCards = React.forwardRef(
 
 		const abilities = pokemonMainData?.data?.abilities;
 		const types = pokemonMainData?.data?.types;
+
+		const handleSelection = () => {
+			if (isSelected) {
+				return setCompare("DELETE", {
+					imageUrl: pokemonImg,
+					name: pokemonData.name,
+				});
+			}
+
+			return setCompare("ADD", {
+				imageUrl: pokemonImg,
+				name: pokemonData.name,
+			});
+		};
+
+		useEffect(() => {
+			let isExist = false;
+			willCompare.forEach((val: TWillCompare, i: number) => {
+				if (val?.name == pokemonData?.name) {
+					return (isExist = true);
+				}
+			});
+			setSelected(isExist);
+		}, [pokemonData.name, willCompare]);
 
 		return (
 			<div
@@ -97,10 +138,7 @@ const PokemonCards = React.forwardRef(
 								<div
 									key={i}
 									style={{
-										backgroundColor: hexToRgba(
-											color,
-											1
-										),
+										backgroundColor: hexToRgba(color, 1),
 									}}
 									className="py-1 rounded-full"
 								>
@@ -112,6 +150,19 @@ const PokemonCards = React.forwardRef(
 						})}
 					</div>
 				</div>
+
+				{isSelecting && (
+					<button
+						onClick={handleSelection}
+						className="absolute rounded-full h-8 w-8 bg-white flex items-center justify-center"
+					>
+						{isSelected && (
+							<div className="relative inset-0 h-6 w-6 bg-blue-900 rounded-full">
+
+							</div>
+						)}
+					</button>
+				)}
 			</div>
 		);
 	}

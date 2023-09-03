@@ -13,6 +13,10 @@
 		"background": "Mengapa ada proyek ini?"
 	},
 	"pokemonCards": {
-    "abilities": "Kemampuan"
-  }
+		"abilities": "Kemampuan",
+		"compare": "Perbandingan",
+		"comparing": "Bandingkan",
+    "messageLimitComparing": "Anda hanya dapat membandingkan maksimal 3 pokemon!"
+
+	}
 }

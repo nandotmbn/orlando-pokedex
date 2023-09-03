@@ -1,5 +1,7 @@
+"use client"
+
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import PokeListPanel from "./partials/PokeListPanel";
 
 interface IHomeViews {
@@ -7,6 +9,12 @@ interface IHomeViews {
 }
 
 function HomeViews({ dictionary }: IHomeViews) {
+	const [open, setOpen] = useState(true);
+
+  const onChange = (checked: boolean) => {
+    setOpen(checked);
+  };
+
 	return (
 		<main className="bg-white dark:bg-gray-900">
 			<div className="flex flex-row items-center justify-center w-10/12 m-auto py-8 gap-2 border-b-2 border-black dark:border-white">
@@ -42,7 +50,7 @@ function HomeViews({ dictionary }: IHomeViews) {
 						alt="OKE"
 						width={720}
 						height={720}
-            unoptimized={true}
+						unoptimized={true}
 					/>
 				</div>
 			</div>

@@ -31,5 +31,28 @@ const serviceInstance = (isNotify: boolean = false) => {
 	return _serviceInstance;
 };
 
+const headers = {
+  'Content-Type': 'application/json',
+};
+
+const httpClient = (isContentJson: boolean = true) => {
+  const instance = axios.create({
+    baseURL: "https://beta.pokeapi.co/graphql/v1beta",
+    timeout: 10000,
+    headers,
+  });
+
+  return instance;
+};
+
+export const graphQL = (query: string) => {
+  return httpClient().post('', {
+    query,
+  });
+};
+
 export { serviceInstanceNoAuth, serviceInstance };
 export { Pokemon as PokemonService } from "./pokemon";
+export { getAllGenerationsApi } from "./graphql/generation";
+export { getAllTypesApi } from "./graphql/types";
+export { fetchPokemonsApi, getPokemonDetailApi, getPokemonsDetailApi } from "./graphql/pokemon";
