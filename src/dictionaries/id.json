@@ -1,13 +1,15 @@
 {
-  "server-component": {
-    "welcome": "Selamat datang"
-  },
-  "counter": {
-    "increment": "Increment",
-    "decrement": "Decrement"
-  },
-  "headerMenu": {
-    "favourite": "Favorit",
-    "background": "Mengapa ada proyek ini?"
-  }
+	"home": {
+		"welcome": "Selamat datang",
+		"next": "Lanjutkan",
+		"to": "di"
+	},
+	"counter": {
+		"increment": "Increment",
+		"decrement": "Decrement"
+	},
+	"headerMenu": {
+		"favourite": "Favorit",
+		"background": "Mengapa ada proyek ini?"
+	}
 }

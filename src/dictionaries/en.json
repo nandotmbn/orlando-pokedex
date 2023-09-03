@@ -1,6 +1,8 @@
 {
-  "server-component": {
-    "welcome": "Welcome"
+  "home": {
+    "welcome": "Welcome",
+    "next": "Next",
+    "to": "to"
   },
   "counter": {
     "increment": "Increment",

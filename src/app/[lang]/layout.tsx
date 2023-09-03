@@ -12,14 +12,22 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 	params: {
-		lang: "en" | "id"
-	}
+		lang: "en" | "id";
+	};
 }) {
 	return (
 		<html lang="id" className="light">
 			<head>
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" />
+				<link
+					href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap"
+					rel="stylesheet"
+				></link>
+				<link
+					href="https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap"
+					rel="stylesheet"
+				></link>
 				<link
 					href="https://fonts.googleapis.com/css2?family=Dongle&family=Mochiy+Pop+One&display=swap"
 					rel="stylesheet"
@@ -46,9 +54,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body className={inter.className}>
-				<Providers>
-					{children}
-				</Providers>
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	);

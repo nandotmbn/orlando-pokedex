@@ -1,5 +1,6 @@
 import MainLayout from "@/components/MainLayout/MainLayout";
-import { getDictionary } from "@/get-dictionaries";
+import { getDictionary } from "@/app/[lang]/get-dictionaries";
+import HomeViews from "@/views/home/HomeViews";
 import { Metadata, ResolvingMetadata } from "next";
 import { useRouter } from "next/navigation";
 
@@ -29,9 +30,7 @@ export default async function Home({ params }: any) {
 
 	return (
 		<MainLayout dictionary={dictionary}>
-			<main className="bg-white h-screen dark:bg-black">
-				<div className="h-44 flex items-center"></div>
-			</main>
+			<HomeViews dictionary={dictionary} />
 		</MainLayout>
 	);
 }
