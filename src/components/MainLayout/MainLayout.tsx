@@ -2,6 +2,9 @@ import Link from "next/link";
 import React from "react";
 import LanguageSwitcher from "./partials/LanguageSwitcher";
 import ModeSwitcher from "./partials/ModeSwitcher";
+import { MenuOutlined } from "@ant-design/icons";
+import { Drawer } from "antd";
+import DrawerMenu from "./partials/DrawerMenu";
 
 function MainLayout({
 	children,
@@ -13,16 +16,18 @@ function MainLayout({
 	return (
 		<>
 			<header className="border-b-2 border-gray-300 dark:bg-gray-900">
-				<div className="flex flex-row h-20 items-center justify-between m-auto w-8/12">
-					<Link href="/">
+				<div className="flex flex-row h-16 items-center justify-between w-11/12 m-auto">
+					<Link href="/" className="center">
 						<h1
 							style={{ fontFamily: "Bruno Ace" }}
-							className="text-gray-800 font-light text-2xl dark:text-white"
+							className="text-gray-800 font-light text-sm dark:text-white"
 						>
 							Orlando Pokedex
 						</h1>
 					</Link>
-					<div className="flex flex-row gap-8 items-center">
+					<DrawerMenu dictionary={dictionary} />
+
+					<div className="flex-row gap-8 items-center hidden md:flex">
 						<ul className="flex flex-row gap-4 dark:invert">
 							<li>
 								<Link href="/favourites">
