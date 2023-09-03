@@ -2,7 +2,6 @@ import MainLayout from "@/components/MainLayout/MainLayout";
 import { getDictionary } from "@/app/[lang]/get-dictionaries";
 import HomeViews from "@/views/home/HomeViews";
 import { Metadata, ResolvingMetadata } from "next";
-import { useRouter } from "next/navigation";
 
 interface IPropsGenerateMetadata {
 	params: { id: string; lang: "en" | "id" };
@@ -25,12 +24,13 @@ export async function generateMetadata(
 	};
 }
 
-export default async function Home({ params }: any) {
+export default async function Home(props: any) {
+	const { params } = props;
 	const dictionary = await getDictionary(params?.lang);
 
 	return (
 		<MainLayout dictionary={dictionary}>
-			<HomeViews dictionary={dictionary} />
+			<HomeViews dictionary={dictionary} searchParams={props?.searchParams} />
 		</MainLayout>
 	);
 }

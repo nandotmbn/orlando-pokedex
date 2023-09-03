@@ -1,19 +1,16 @@
 "use client"
 
 import Image from "next/image";
-import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+import React, { useEffect } from "react";
 import PokeListPanel from "./partials/PokeListPanel";
 
 interface IHomeViews {
 	dictionary: any;
+	searchParams: any
 }
 
-function HomeViews({ dictionary }: IHomeViews) {
-	const [open, setOpen] = useState(true);
-
-  const onChange = (checked: boolean) => {
-    setOpen(checked);
-  };
+function HomeViews({ dictionary, searchParams }: IHomeViews) {
 
 	return (
 		<main className="bg-white dark:bg-gray-900">
@@ -56,7 +53,7 @@ function HomeViews({ dictionary }: IHomeViews) {
 			</div>
 
 			<div id="poke-list" className="">
-				<PokeListPanel dictionary={dictionary} />
+				<PokeListPanel searchParams={searchParams} dictionary={dictionary} />
 			</div>
 		</main>
 	);

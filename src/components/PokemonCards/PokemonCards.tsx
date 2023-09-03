@@ -5,7 +5,9 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import hexToRgba from "hex-to-rgba";
 import colourNameToHex from "@/constants/name-color.toHex.constants";
-import pokemonColorTypeConverter from "@/constants/type-color.pokemon.constants";
+import PokemonCardsTypes from "./partials/PokemonCardsTypes";
+import PokemonCardsAbilities from "./partials/PokemonCardsAbilities";
+import SelectButton from "./partials/SelectButton";
 
 type TWillCompare = {
 	name: string;
@@ -116,53 +118,12 @@ const PokemonCards = React.forwardRef(
 						<p className="mt-4 text-gray-500 dark:text-white font-semibold text-xs md:text-xl">
 							{dictionary.pokemonCards?.abilities}
 						</p>
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-							{abilities?.map((ability: any, i: number) => {
-								return (
-									<div
-										key={i}
-										className="p-1 rounded-full bg-black text-white dark:invert"
-									>
-										<p className="text-xxs lg:text-xs capitalize text-center">
-											{ability?.ability?.name?.split("-").join(" ")}
-										</p>
-									</div>
-								);
-							})}
-						</div>
+						<PokemonCardsAbilities abilities={abilities} />
 					</div>
-					<div className="grid grid-cols-2 gap-2">
-						{types?.map((type: any, i: number) => {
-							const color = pokemonColorTypeConverter(type?.type?.name);
-							return (
-								<div
-									key={i}
-									style={{
-										backgroundColor: hexToRgba(color, 1),
-									}}
-									className="py-1 rounded-full"
-								>
-									<p className="text-xxs lg:text-xs capitalize text-center text-white">
-										{type?.type?.name?.split("-").join(" ")}
-									</p>
-								</div>
-							);
-						})}
-					</div>
+					<PokemonCardsTypes types={types} />
 				</div>
 
-				{isSelecting && (
-					<button
-						onClick={handleSelection}
-						className="absolute rounded-full h-8 w-8 bg-white flex items-center justify-center"
-					>
-						{isSelected && (
-							<div className="relative inset-0 h-6 w-6 bg-blue-900 rounded-full">
-
-							</div>
-						)}
-					</button>
-				)}
+				<SelectButton handleSelection={handleSelection} isSelected={isSelected} isSelecting={isSelecting} />
 			</div>
 		);
 	}

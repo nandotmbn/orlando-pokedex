@@ -19,6 +19,7 @@ import FilterDrawer from "./FilterDrawer";
 
 interface IPokeListPanel {
 	dictionary: any;
+	searchParams: any
 }
 
 type TWillCompare = {
@@ -26,7 +27,7 @@ type TWillCompare = {
 	imageUrl: string;
 };
 
-function PokeListPanel({ dictionary }: IPokeListPanel) {
+function PokeListPanel({ dictionary, searchParams }: IPokeListPanel) {
 	const LIMIT = 10;
 	const { ref, inView } = useInView();
 	const [open, setOpen] = useState(false);
@@ -75,8 +76,8 @@ function PokeListPanel({ dictionary }: IPokeListPanel) {
 					limit: 10,
 					offset: 10 * pageParam,
 					filter: {
-						generationIds: [],
-						typeIds: [],
+						generationIds: searchParams?.generationIds?.split(",") || [],
+						typeIds: searchParams?.typeIds?.split(",") || [],
 					},
 				});
 			},
