@@ -32,3 +32,4 @@ const serviceInstance = (isNotify: boolean = false) => {
 };
 
 export { serviceInstanceNoAuth, serviceInstance };
+export { Pokemon as PokemonService } from "./pokemon";

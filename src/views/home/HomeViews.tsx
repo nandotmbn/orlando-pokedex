@@ -47,7 +47,7 @@ function HomeViews({ dictionary }: IHomeViews) {
 				</div>
 			</div>
 
-			<div id="poke-list" className="h-screen">
+			<div id="poke-list" className="">
 				<PokeListPanel dictionary={dictionary} />
 			</div>
 		</main>
