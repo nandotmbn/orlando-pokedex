@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import PokeListPanel from "./partials/PokeListPanel";
 
 interface IHomeViews {
 	dictionary: any;
@@ -47,7 +48,7 @@ function HomeViews({ dictionary }: IHomeViews) {
 			</div>
 
 			<div id="poke-list" className="h-screen">
-
+				<PokeListPanel dictionary={dictionary} />
 			</div>
 		</main>
 	);
