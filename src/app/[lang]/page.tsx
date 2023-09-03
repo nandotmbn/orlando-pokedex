@@ -1,8 +1,10 @@
+import MainLayout from "@/components/MainLayout/MainLayout";
+import { getDictionary } from "@/get-dictionaries";
 import { Metadata, ResolvingMetadata } from "next";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface IPropsGenerateMetadata {
-	params: { id: string };
+	params: { id: string; lang: "en" | "id" };
 	searchParams: { [key: string]: string | string[] | undefined };
 }
 
@@ -22,12 +24,14 @@ export async function generateMetadata(
 	};
 }
 
-export default function Home() {
+export default async function Home({ params }: any) {
+	const dictionary = await getDictionary(params?.lang);
+
 	return (
-		<main className="bg-white h-screen dark:bg-black">
-			<div className="h-44 flex items-center">
-				
-			</div>
-		</main>
+		<MainLayout dictionary={dictionary}>
+			<main className="bg-white h-screen dark:bg-black">
+				<div className="h-44 flex items-center"></div>
+			</main>
+		</MainLayout>
 	);
 }

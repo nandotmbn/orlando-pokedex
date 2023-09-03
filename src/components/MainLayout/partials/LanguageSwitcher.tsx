@@ -5,12 +5,9 @@ import { Tooltip } from "antd";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-interface ILanguageSwitcher {
-	lang: "id" | "en";
-}
-
-function LanguageSwitcher({ lang }: ILanguageSwitcher) {
+function LanguageSwitcher() {
 	const pathName = usePathname();
+	const lang = pathName.split("/")[1] as any;
 
 	const redirectedPathName = (locale: string) => {
 		if (!pathName) return "/";

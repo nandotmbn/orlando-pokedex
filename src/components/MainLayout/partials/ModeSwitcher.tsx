@@ -3,11 +3,7 @@
 import React, { useEffect, useLayoutEffect } from "react";
 import {Tooltip} from "antd"
 
-interface IModeSwitcher {
-	lang: "id" | "en";
-}
-
-function ModeSwitcher({lang}: IModeSwitcher) {
+function ModeSwitcher() {
 	const getStatus = () => {
 		// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 		if (localStorage.getItem("theme") == "dark") {

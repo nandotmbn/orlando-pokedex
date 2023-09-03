@@ -4,9 +4,7 @@ import React from "react";
 import LanguageSwitcher from "./partials/LanguageSwitcher";
 import ModeSwitcher from "./partials/ModeSwitcher";
 
-async function MainLayout({ children, locale }: { locale: "en" | "id", children: React.ReactNode }) {
-	const dictionary = await getDictionary(locale) as any
-
+function MainLayout({ children, dictionary }: { children: React.ReactNode, dictionary: any }) {
 	return (
 		<>
 			<header className="border-b-2 border-gray-300 dark:bg-black">
@@ -26,8 +24,8 @@ async function MainLayout({ children, locale }: { locale: "en" | "id", children:
 							</li>
 						</ul>
 
-						<LanguageSwitcher lang={locale} />
-						<ModeSwitcher lang={locale} />
+						<LanguageSwitcher />
+						<ModeSwitcher />
 					</div>
 				</div>
 			</header>

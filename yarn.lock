@@ -113,13 +113,6 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.48.0.tgz#642633964e217905436033a2bd08bf322849b7fb"
   integrity sha512-ZSjtmelB7IJfWD2Fvb7+Z+ChTIKWq6kjda95fLcQKNS5aheVHn4IkfgRQE3sIIzTcSLwLcLZUD9UBt+V7+h+Pw==
 
-"@formatjs/intl-localematcher@^0.2.32":
-  version "0.2.32"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-localematcher/-/intl-localematcher-0.2.32.tgz#00d4d307cd7d514b298e15a11a369b86c8933ec1"
-  integrity sha512-k/MEBstff4sttohyEpXxCmC3MqbUn9VvHGlZ8fauLzkbwXmVrEeyzS+4uhrvAk9DWU9/7otYWxyDox4nT/KVLQ==
-  dependencies:
-    tslib "^2.4.0"
-
 "@formatjs/intl-localematcher@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@formatjs/intl-localematcher/-/intl-localematcher-0.4.0.tgz#63bbc37a7c3545a1bf1686072e51d9a3aed98d6b"
@@ -822,7 +815,7 @@ classnames@2.x, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classna
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
-client-only@0.0.1, client-only@^0.0.1:
+client-only@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
   integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
@@ -1642,11 +1635,6 @@ internal-slot@^1.0.5:
     has "^1.0.3"
     side-channel "^1.0.4"
 
-international-types@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/international-types/-/international-types-0.8.0.tgz#a3d027ad59d8de9b53fa8c448f8fe9b1bc558097"
-  integrity sha512-cJwagIBzMG0FTK81TABeSBU0eReIXWmvW18m/URn8ZA+GLoWIcdL43kfjArwHVmZJ1n+IFchsBj8tQLYUqmwnA==
-
 is-array-buffer@^3.0.1, is-array-buffer@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/is-array-buffer/-/is-array-buffer-3.0.2.tgz#f2653ced8412081638ecb0ebbd0c41c6e0aecbbe"
@@ -2052,14 +2040,6 @@ negotiator@^0.6.3:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
-next-i18n-router@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/next-i18n-router/-/next-i18n-router-3.2.0.tgz#d09a190b73e77405063de987d2a993b7f76aa6de"
-  integrity sha512-7naT92uFvmWfWZTr/liIlMhxvi1mtjLyIwdBEryTM0/7vV3Ow0hFB7HWTXvRdKCWtm2rMHoIN9Hmy/bXUgDjog==
-  dependencies:
-    "@formatjs/intl-localematcher" "^0.2.32"
-    negotiator "^0.6.3"
-
 next-images@^1.8.5:
   version "1.8.5"
   resolved "https://registry.yarnpkg.com/next-images/-/next-images-1.8.5.tgz#2eb5535bb1d6c58a5c4e03bc3be6c72c8a053a45"
@@ -2067,15 +2047,6 @@ next-images@^1.8.5:
   dependencies:
     file-loader "^6.2.0"
     url-loader "^4.1.0"
-
-next-international@^0.9.5:
-  version "0.9.5"
-  resolved "https://registry.yarnpkg.com/next-international/-/next-international-0.9.5.tgz#6127f1799fa41bbb9d17450458e4b04c77cb697e"
-  integrity sha512-yS6DnuNAK+2EO5KWLgw2FPGwBkQ8gylrG0vNSeJD0/BAHSyIpPCn6E+1KPzawQffB5r6wVP6vHjDoSlUOxWWew==
-  dependencies:
-    client-only "^0.0.1"
-    international-types "^0.8.0"
-    server-only "^0.0.1"
 
 next@^13.4.0:
   version "13.4.19"
