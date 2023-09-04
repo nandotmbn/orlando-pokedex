@@ -24,5 +24,12 @@
 		"filter": "Filter",
 		"cancel": "Cancel",
 		"reset": "Reset"
+	},
+	"detailPage": {
+		"forms": "Form",
+		"evolution": "Evolutions",
+		"basic": "Basic",
+		"weight": "Weight",
+		"height": "Height"
 	}
 }

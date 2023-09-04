@@ -53,6 +53,7 @@ export const graphQL = (query: string) => {
 
 export { serviceInstanceNoAuth, serviceInstance };
 export { Pokemon as PokemonService } from "./pokemon";
+export { Evolution as EvolutionService } from "./evolution";
 export { getAllGenerationsApi } from "./graphql/generation";
 export { getAllTypesApi } from "./graphql/types";
 export { fetchPokemonsApi, getPokemonDetailApi, getPokemonsDetailApi } from "./graphql/pokemon";

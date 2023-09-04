@@ -24,5 +24,12 @@
 		"filter": "Urutkan",
 		"cancel": "Batal",
 		"reset": "Ulangi"
+	},
+	"detailPage": {
+		"forms": "Perubahan Bentuk",
+		"evolution": "Evolusi",
+		"basic": "Dasar",
+		"weight": "Berat",
+		"height": "Tinggi"
 	}
 }
