@@ -16,6 +16,13 @@
 		"abilities": "Abilities",
 		"compare": "Comparison",
 		"comparing": "Compare",
-    "messageLimitComparing": "You only can compare maximum 3 pokemons!"
+		"messageLimitComparing": "You only can compare maximum 3 pokemons!"
+	},
+	"filter": {
+		"generation": "Generations",
+		"types": "Types",
+		"filter": "Filter",
+		"cancel": "Cancel",
+		"reset": "Reset"
 	}
 }

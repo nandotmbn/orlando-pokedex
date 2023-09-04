@@ -16,7 +16,13 @@
 		"abilities": "Kemampuan",
 		"compare": "Perbandingan",
 		"comparing": "Bandingkan",
-    "messageLimitComparing": "Anda hanya dapat membandingkan maksimal 3 pokemon!"
-
+		"messageLimitComparing": "Anda hanya dapat membandingkan maksimal 3 pokemon!"
+	},
+	"filter": {
+		"generation": "Generasi",
+		"types": "Types",
+		"filter": "Urutkan",
+		"cancel": "Batal",
+		"reset": "Ulangi"
 	}
 }

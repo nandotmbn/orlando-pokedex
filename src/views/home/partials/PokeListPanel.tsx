@@ -115,7 +115,7 @@ function PokeListPanel({ dictionary, searchParams }: IPokeListPanel) {
 					})
 				)}
 
-				<FilterDrawer isOpen={openFilter} setOpen={setOpenFilter} />
+				<FilterDrawer dictionary={dictionary} isOpen={openFilter} setOpen={setOpenFilter} />
 
 				<FloatButton.Group
 					open={open}
