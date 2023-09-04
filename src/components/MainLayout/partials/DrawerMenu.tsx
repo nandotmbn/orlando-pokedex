@@ -39,13 +39,7 @@ function DrawerMenu({ dictionary }: { dictionary: any }) {
 								</p>
 							</Link>
 						</li>
-						<li>
-							<Link href="/background">
-								<p className="text-sm text-right text-gray-600 hover:text-black hover:dark:text-white dark:invert">
-									{dictionary?.headerMenu?.background}
-								</p>
-							</Link>
-						</li>
+						
 					</ul>
 
 					<div className="flex flex-row gap-8 items-center">
