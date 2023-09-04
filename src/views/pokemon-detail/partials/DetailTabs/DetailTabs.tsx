@@ -1,6 +1,8 @@
 import React from "react";
 import { Select, Tabs, TabsProps } from "antd";
 import AboutTab from "./partials/AboutTab";
+import StatTab from "./partials/StatTab";
+import EvolutionTab from "./partials/EvolutionTab";
 
 interface IDetailTabs {
 	dictionary: any;
@@ -40,7 +42,7 @@ function DetailTabs({
 					Stats
 				</p>
 			),
-			children: "Content of Tab Pane 2",
+			children: <StatTab stats={pokemonData?.data?.stats} />,
 		},
 		{
 			key: "3",
@@ -49,7 +51,7 @@ function DetailTabs({
 					Evolutions
 				</p>
 			),
-			children: "Content of Tab Pane 3",
+			children: <EvolutionTab />,
 		},
 	];
 
