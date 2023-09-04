@@ -2,12 +2,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import ToogleFavourite from "@/components/ToogleFavourite/ToogleFavourite";
 import colourNameToHex from "@/constants/name-color.toHex.constants";
 import { getPokemonDetailApi, PokemonService } from "@/services";
 import { useQuery } from "@tanstack/react-query";
 import hexToRgba from "hex-to-rgba";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DetailTabs from "./partials/DetailTabs/DetailTabs";
 import EvolutionSelector from "./partials/EvolutionSelector";
 import GeneralInfo from "./partials/GeneralInfo";
@@ -49,6 +50,8 @@ function PokemonDetailViews({ dictionary }: IPokemonDetailViews) {
 			? "gray"
 			: pokemonSpeciesData?.data?.color?.name;
 
+	useEffect(() => {}, [name]);
+
 	return (
 		<div className="w-full bg-white dark:bg-gray-900 flex items-center justify-center py-8">
 			<div
@@ -76,6 +79,10 @@ function PokemonDetailViews({ dictionary }: IPokemonDetailViews) {
 					pokemonData={pokemonData}
 					pokemonImg={pokemonImg}
 				/>
+
+				<div className="flex flex-row w-full items-end justify-end">
+					<ToogleFavourite dictionary={dictionary} name={pokemonData?.data?.name} />
+				</div>
 
 				<DetailTabs
 					dictionary={dictionary}

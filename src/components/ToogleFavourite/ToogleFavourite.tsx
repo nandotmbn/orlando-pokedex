@@ -40,7 +40,7 @@ function ToogleFavourite({ name, dictionary }: IToogleFavourite) {
 		}
 
 		getStateFav();
-	}, [localStorage]);
+	}, [localStorage, name]);
 
 	return (
 		<button
