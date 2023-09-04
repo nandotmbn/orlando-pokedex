@@ -8,6 +8,8 @@ import colourNameToHex from "@/constants/name-color.toHex.constants";
 import PokemonCardsTypes from "./partials/PokemonCardsTypes";
 import PokemonCardsAbilities from "./partials/PokemonCardsAbilities";
 import SelectButton from "./partials/SelectButton";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type TWillCompare = {
 	name: string;
@@ -34,6 +36,8 @@ const PokemonCards = React.forwardRef(
 		ref: any
 	) => {
 		const [isSelected, setSelected] = useState(false);
+		const pathname = usePathname();
+		const locale = pathname.split("/")[1]
 		const pokemonMainData = useQuery([pokemonData.name], () => {
 			return PokemonService.getByNamePokemons({
 				isNotify: false,
@@ -107,12 +111,13 @@ const PokemonCards = React.forwardRef(
 							<p className="mt-4 text-gray-500 dark:text-white font-semibold text-xs">
 								#{pokemonMainData?.data?.id}
 							</p>
-							<h2
-								className="uppercase p-1 px-2 text-xs lg:text-lg dark:text-gray-100 text-gray-800 font-bold text-center rounded-full border-2"
-								style={{ borderColor: pokemonColor }}
-							>
-								{pokemonData.name}
-							</h2>
+							<Link href={`/${locale}/details/${pokemonData.name}`}>
+								<h2
+									className="uppercase underline p-1 px-2 text-xs lg:text-lg dark:text-gray-100 text-gray-800 font-bold text-center rounded-full"
+								>
+									{pokemonData.name}
+								</h2>
+							</Link>
 						</div>
 
 						<p className="mt-4 text-gray-500 dark:text-white font-semibold text-xs md:text-xl">
@@ -123,7 +128,11 @@ const PokemonCards = React.forwardRef(
 					<PokemonCardsTypes types={types} />
 				</div>
 
-				<SelectButton handleSelection={handleSelection} isSelected={isSelected} isSelecting={isSelecting} />
+				<SelectButton
+					handleSelection={handleSelection}
+					isSelected={isSelected}
+					isSelecting={isSelecting}
+				/>
 			</div>
 		);
 	}

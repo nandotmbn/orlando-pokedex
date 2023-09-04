@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -19,7 +20,7 @@ import FilterDrawer from "./FilterDrawer";
 
 interface IPokeListPanel {
 	dictionary: any;
-	searchParams: any
+	searchParams: any;
 }
 
 type TWillCompare = {
@@ -68,33 +69,37 @@ function PokeListPanel({ dictionary, searchParams }: IPokeListPanel) {
 		setWillCompare(reducedWillCompare);
 	};
 
-	const { data, isSuccess, hasNextPage, fetchNextPage, isFetchingNextPage } =
-		useInfiniteQuery(
-			["pokemons"],
-			({ pageParam = 0 }) => {
-				return fetchPokemonsApi({
-					limit: 10,
-					offset: 10 * pageParam,
-					filter: {
-						generationIds: searchParams?.generationIds?.split(",") || [],
-						typeIds: searchParams?.typeIds?.split(",") || [],
-					},
-				});
-			},
-			{
-				getNextPageParam: (lastPage, allPages) => {
-					const nextPage =
-						lastPage.length === LIMIT ? allPages.length + 1 : undefined;
-					return nextPage;
+	const { data, fetchNextPage, isFetchingNextPage, refetch } = useInfiniteQuery(
+		["pokemons"],
+		({ pageParam = 0 }) => {
+			return fetchPokemonsApi({
+				limit: 10,
+				offset: 10 * pageParam,
+				filter: {
+					generationIds: searchParams?.generationIds?.split(",") || [],
+					typeIds: searchParams?.typeIds?.split(",") || [],
 				},
-			}
-		);
+			});
+		},
+		{
+			getNextPageParam: (lastPage, allPages) => {
+				const nextPage =
+					lastPage.length === LIMIT ? allPages.length + 1 : undefined;
+				return nextPage;
+			},
+			enabled: false,
+		}
+	);
 
 	useEffect(() => {
 		if (inView) {
 			fetchNextPage();
 		}
 	}, [inView, fetchNextPage]);
+
+	useEffect(() => {
+		refetch();
+	}, [searchParams]);
 
 	return (
 		<div>
@@ -115,7 +120,12 @@ function PokeListPanel({ dictionary, searchParams }: IPokeListPanel) {
 					})
 				)}
 
-				<FilterDrawer dictionary={dictionary} isOpen={openFilter} setOpen={setOpenFilter} />
+				<FilterDrawer
+					searchParams={searchParams}
+					dictionary={dictionary}
+					isOpen={openFilter}
+					setOpen={setOpenFilter}
+				/>
 
 				<FloatButton.Group
 					open={open}
