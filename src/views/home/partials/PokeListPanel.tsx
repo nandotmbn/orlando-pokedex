@@ -17,6 +17,7 @@ import {
 } from "@ant-design/icons";
 import Link from "next/link";
 import FilterDrawer from "./FilterDrawer";
+import { usePathname } from "next/navigation";
 
 interface IPokeListPanel {
 	dictionary: any;
@@ -35,6 +36,9 @@ function PokeListPanel({ dictionary, searchParams }: IPokeListPanel) {
 	const [openFilter, setOpenFilter] = useState(false);
 	const [isSelecting, setSelecting] = useState<boolean>(false);
 	const [willCompare, setWillCompare] = useState<TWillCompare[]>([]);
+
+	const pathname = usePathname().split("/")
+	const locale = pathname[1]
 
 	const getListPokemon = () => {
 		const pokemon: any[] = [];
@@ -171,7 +175,7 @@ function PokeListPanel({ dictionary, searchParams }: IPokeListPanel) {
 					</div>
 					<Link
 						className="my-auto"
-						href={`/comparison?pokemon=${getListPokemon()}`}
+						href={`/${locale}/comparison?pokemon=${getListPokemon()}`}
 					>
 						<button className="px-4 py-1 rounded-xl bg-blue-800 text-white text-xs">
 							<p>{dictionary.pokemonCards.comparing}</p>

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import TypeTag from "@/components/TypeTag/TypeTag";
+import { Image } from "antd";
 import React from "react";
 
 interface IGeneralInfo {
@@ -12,9 +13,9 @@ function GeneralInfo({ pokemonImg, name, pokemonData }: IGeneralInfo) {
 	return (
 		<div className="flex items-center justify-center flex-col">
 			<div className="w-72 m-auto">
-				<img
-					height={400}
-					width={400}
+				<Image
+					height={300}
+					width={300}
 					className="object-cover object-center w-full"
 					src={pokemonImg}
 					alt={name}
