@@ -51,7 +51,7 @@ function DetailTabs({
 					Evolutions
 				</p>
 			),
-			children: <EvolutionTab />,
+			children: <EvolutionTab evolution={pokemonDataGql?.data?.evolutions?.species} />,
 		},
 	];
 
