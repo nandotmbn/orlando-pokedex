@@ -5,14 +5,14 @@ import AboutTab from "./partials/AboutTab";
 interface IDetailTabs {
 	dictionary: any;
 	pokemonData: any;
-	pokemonMainData: any;
+	pokemonDataGql: any;
 	pokemonSpeciesData: any;
 }
 
 function DetailTabs({
 	dictionary,
 	pokemonData,
-	pokemonMainData,
+	pokemonDataGql,
 	pokemonSpeciesData,
 }: IDetailTabs) {
 	const items: TabsProps["items"] = [
@@ -26,7 +26,7 @@ function DetailTabs({
 			children: (
 				<AboutTab
 					abilities={pokemonData?.data?.abilities}
-					description={pokemonMainData?.data?.flavorText[0]?.flavorText}
+					description={pokemonDataGql?.data?.flavorText[0]?.flavorText}
           height={pokemonData?.data?.height}
           weight={pokemonData?.data?.weight}
 					dictionary={dictionary}

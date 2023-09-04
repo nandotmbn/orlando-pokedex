@@ -6,7 +6,7 @@ interface IEvolutionSelector {
 	dictionary: any;
 	handleChange: (props: any) => void;
 	name: string;
-	pokemonMainData: any;
+	pokemonDataGql: any;
 	isFetchingNew: boolean;
 }
 
@@ -14,7 +14,7 @@ function EvolutionSelector({
 	dictionary,
 	handleChange,
 	name,
-	pokemonMainData,
+	pokemonDataGql,
 	isFetchingNew = false,
 }: IEvolutionSelector) {
 	return (
@@ -31,7 +31,7 @@ function EvolutionSelector({
 				defaultValue={name.toUpperCase()}
 				style={{ width: 180 }}
 				onChange={handleChange}
-				options={pokemonMainData?.data?.pokemons?.map(
+				options={pokemonDataGql?.data?.pokemons?.map(
 					(spec: any) => {
 						return { value: spec?.name, label: <p className="text-xs">{spec?.name?.toUpperCase()}</p> };
 					}

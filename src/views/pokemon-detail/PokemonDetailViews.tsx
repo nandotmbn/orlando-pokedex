@@ -25,11 +25,11 @@ function PokemonDetailViews({ dictionary }: IPokemonDetailViews) {
 		return PokemonService.getByNamePokemons({ name, isNotify: false });
 	});
 
-	const pokemonMainData = useQuery(["detail-pokemon-name"], () => {
+	const pokemonDataGql = useQuery(["detail-pokemon-gql"], () => {
 		return getPokemonDetailApi(name);
 	});
 
-	const pokemon = pokemonMainData?.data?.pokemons[0];
+	const pokemon = pokemonDataGql?.data?.pokemons[0];
 
 	const pokemonSpeciesData = useQuery(
 		[`species:${pokemon?.name}`, name],
@@ -68,7 +68,7 @@ function PokemonDetailViews({ dictionary }: IPokemonDetailViews) {
 						setName(props);
 					}}
 					name={name}
-					pokemonMainData={pokemonMainData}
+					pokemonDataGql={pokemonDataGql}
 				/>
 
 				<GeneralInfo
@@ -80,7 +80,7 @@ function PokemonDetailViews({ dictionary }: IPokemonDetailViews) {
 				<DetailTabs
 					dictionary={dictionary}
 					pokemonData={pokemonData}
-					pokemonMainData={pokemonMainData}
+					pokemonDataGql={pokemonDataGql}
 					pokemonSpeciesData={pokemonSpeciesData}
 				/>
 			</div>
