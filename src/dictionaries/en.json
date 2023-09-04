@@ -31,5 +31,9 @@
 		"basic": "Basic",
 		"weight": "Weight",
 		"height": "Height"
+	},
+	"toogle": {
+		"success": "Successfully add pokemon to favourites!",
+		"remove": "Successfully remove pokemon from favourites!"
 	}
 }

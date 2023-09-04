@@ -10,6 +10,7 @@ import PokemonCardsAbilities from "./partials/PokemonCardsAbilities";
 import SelectButton from "./partials/SelectButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ToogleFavourite from "../ToogleFavourite/ToogleFavourite";
 
 type TWillCompare = {
 	name: string;
@@ -37,7 +38,7 @@ const PokemonCards = React.forwardRef(
 	) => {
 		const [isSelected, setSelected] = useState(false);
 		const pathname = usePathname();
-		const locale = pathname.split("/")[1]
+		const locale = pathname.split("/")[1];
 		const pokemonMainData = useQuery([pokemonData.name], () => {
 			return PokemonService.getByNamePokemons({
 				isNotify: false,
@@ -104,6 +105,11 @@ const PokemonCards = React.forwardRef(
 						src={pokemonImg}
 						alt={pokemonData?.name}
 					/>
+					<div className="relative">
+						<div className="absolute bottom-8 -left-8">
+							<ToogleFavourite dictionary={dictionary} name={pokemonData.name} />
+						</div>
+					</div>
 				</div>
 				<div className="flex flex-1 flex-col justify-between">
 					<div>
@@ -112,9 +118,7 @@ const PokemonCards = React.forwardRef(
 								#{pokemonMainData?.data?.id}
 							</p>
 							<Link href={`/${locale}/details/${pokemonData.name}`}>
-								<h2
-									className="uppercase underline p-1 px-2 text-xs lg:text-lg dark:text-gray-100 text-gray-800 font-bold text-center rounded-full"
-								>
+								<h2 className="uppercase underline p-1 px-2 text-xs lg:text-lg dark:text-gray-100 text-gray-800 font-bold text-center rounded-full">
 									{pokemonData.name}
 								</h2>
 							</Link>
