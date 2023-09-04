@@ -40,13 +40,6 @@ function MainLayout({
 									</p>
 								</Link>
 							</li>
-							<li>
-								<Link href={"/" + locale + "/background"}>
-									<p className="text-sm text-gray-600 hover:text-black hover:dark:text-white dark:invert">
-										{dictionary?.headerMenu?.background}
-									</p>
-								</Link>
-							</li>
 						</ul>
 
 						<LanguageSwitcher />
