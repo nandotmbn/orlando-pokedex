@@ -101,6 +101,8 @@ const PokemonCards = React.forwardRef(
 			>
 				<div className="flex flex-1">
 					<img
+					height={400}
+					width={400}
 						className="object-cover object-center w-full"
 						src={pokemonImg}
 						alt={pokemonData?.name}

@@ -13,6 +13,8 @@ function GeneralInfo({ pokemonImg, name, pokemonData }: IGeneralInfo) {
 		<div className="flex items-center justify-center flex-col">
 			<div className="w-72 m-auto">
 				<img
+					height={400}
+					width={400}
 					className="object-cover object-center w-full"
 					src={pokemonImg}
 					alt={name}

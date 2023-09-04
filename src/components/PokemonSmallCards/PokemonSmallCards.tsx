@@ -10,20 +10,23 @@ function PokemonSmallCards({ name }: { name: string }) {
 
 	const pokemonImg =
 		pokemon?.data?.sprites?.other["official-artwork"]?.front_default;
-	const pokemonId =
-		pokemon?.data?.id
+	const pokemonId = pokemon?.data?.id;
 
 	return (
 		<div className="flex w-full py-2 flex flex-col items-center justify-center">
 			<div className="h-44">
 				<img
+					height={200}
+					width={200}
 					className="object-cover object-center h-full"
 					src={pokemonImg}
 					alt={name}
 				/>
 			</div>
-      <p className="text-xl font-bold dark:text-white">#{pokemonId}</p>
-      <p className="text-2xl font-bold dark:text-white capitalize">{name.split("-").join(" ")}</p>
+			<p className="text-xl font-bold dark:text-white">#{pokemonId}</p>
+			<p className="text-2xl font-bold dark:text-white capitalize">
+				{name.split("-").join(" ")}
+			</p>
 		</div>
 	);
 }
