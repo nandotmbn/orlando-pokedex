@@ -159,8 +159,8 @@ function PokeListPanel({ dictionary, searchParams }: IPokeListPanel) {
 							return (
 								<div key={i} className="flex flex-1">
 									<img
-									height={400}
-									width={400}
+										height={400}
+										width={400}
 										className="object-cover object-center w-full"
 										src={dataCompare.imageUrl}
 										alt={dataCompare?.name}

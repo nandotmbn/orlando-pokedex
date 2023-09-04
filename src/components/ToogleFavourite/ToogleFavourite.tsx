@@ -2,12 +2,22 @@
 "use client";
 
 import { HeartFilled, HeartOutlined } from "@ant-design/icons";
-import { message } from "antd";
+import { message, notification } from "antd";
 import React, { useEffect, useState } from "react";
 
-interface IToogleFavourite { name: string, dictionary: any }
+interface IToogleFavourite {
+	name: string;
+	dictionary: any;
+	isControlList?: boolean;
+	controller?: Function;
+}
 
-function ToogleFavourite({ name, dictionary }: IToogleFavourite) {
+function ToogleFavourite({
+	name,
+	dictionary,
+	controller,
+	isControlList = false,
+}: IToogleFavourite) {
 	const [isFav, setFav] = useState<boolean>(false);
 	const handleToogleFavourite = () => {
 		const fav: string[] = JSON.parse(localStorage?.favourites);
@@ -19,14 +29,24 @@ function ToogleFavourite({ name, dictionary }: IToogleFavourite) {
 			});
 
 			localStorage.setItem("favourites", JSON.stringify(reducedFav));
-      message.success({content: dictionary.toogle.remove})
-      
-      return getStateFav()
+			notification.success({
+				message: dictionary.toogle.remove,
+				placement: "topLeft",
+			});
+
+			if (isControlList) {
+				controller!(reducedFav);
+			}
+
+			return getStateFav();
 		}
-    message.success({content: dictionary.toogle.success})
-    
+		notification.success({
+			message: dictionary.toogle.success,
+			placement: "topLeft",
+		});
+
 		localStorage.setItem("favourites", JSON.stringify([...fav, name]));
-    return getStateFav()
+		return getStateFav();
 	};
 
 	const getStateFav = () => {
@@ -40,7 +60,7 @@ function ToogleFavourite({ name, dictionary }: IToogleFavourite) {
 		}
 
 		getStateFav();
-	}, [localStorage, name]);
+	}, [name]);
 
 	return (
 		<button

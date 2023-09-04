@@ -2,6 +2,7 @@ import MainLayout from "@/components/MainLayout/MainLayout";
 import { getDictionary } from "../get-dictionaries";
 import { Metadata, ResolvingMetadata } from "next";
 import { useRouter } from "next/navigation";
+import FavouriteViews from "@/views/favourites/FavouriteViews";
 
 interface IPropsGenerateMetadata {
 	params: { id: string; lang: "en" | "id" };
@@ -29,9 +30,7 @@ export default async function Favourites({ params }: any) {
 
 	return (
 		<MainLayout dictionary={dictionary}>
-			<main className="bg-white h-screen dark:bg-black">
-				<div className="h-44 flex items-center"></div>
-			</main>
+			<FavouriteViews dictionary={dictionary} />
 		</MainLayout>
 	);
 }

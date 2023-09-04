@@ -35,5 +35,10 @@
 	"toogle": {
 		"success": "Berhasil menambahkan pokemon ke favorit!",
 		"remove": "Berhasil menghapus pokemon dari favorit!"
+	},
+	"favourite": {
+		"title": "Benarkah? Kami adalah favoritmu?",
+		"empty": "Dan.. ternyata kita belum ada :(",
+		"back": "Kembali dan tambah beberapa favorit"
 	}
 }

@@ -20,6 +20,8 @@ type TWillCompare = {
 interface IPokemonCards {
 	pokemonData: { name: string };
 	dictionary: any;
+	directNameList?: string[];
+	setDirectNameList?: Function;
 	isSelecting: boolean;
 	setCompare: (operator: "ADD" | "DELETE", props: TWillCompare) => void;
 	willCompare: TWillCompare[];
@@ -31,6 +33,8 @@ const PokemonCards = React.forwardRef(
 			pokemonData,
 			dictionary,
 			isSelecting,
+			directNameList,
+			setDirectNameList,
 			setCompare,
 			willCompare,
 		}: IPokemonCards,
@@ -101,15 +105,20 @@ const PokemonCards = React.forwardRef(
 			>
 				<div className="flex flex-1">
 					<img
-					height={400}
-					width={400}
+						height={400}
+						width={400}
 						className="object-cover object-center w-full"
 						src={pokemonImg}
 						alt={pokemonData?.name}
 					/>
 					<div className="relative">
 						<div className="absolute bottom-8 -left-8">
-							<ToogleFavourite dictionary={dictionary} name={pokemonData.name} />
+							<ToogleFavourite
+								dictionary={dictionary}
+								name={pokemonData.name}
+								controller={setDirectNameList}
+								isControlList={directNameList?.length ? true : false}
+							/>
 						</div>
 					</div>
 				</div>

@@ -35,5 +35,10 @@
 	"toogle": {
 		"success": "Successfully add pokemon to favourites!",
 		"remove": "Successfully remove pokemon from favourites!"
+	},
+	"favourite": {
+		"title": "Really? Are we your favourites?",
+		"empty": "And.. we are still don't exists :(",
+		"back": "Go back and add favourites"
 	}
 }
